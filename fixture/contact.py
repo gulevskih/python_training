@@ -60,11 +60,18 @@ class ContactHelper:
         if text is not None:
             Select(wd.find_element_by_name(field_name)).select_by_visible_text(text)
 
-    def edit_first_contact(self, contact):
+    def select_contact_by_index(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_css_selector("img[alt=\"Edit\"]")[index].click()
+
+    def edit_first_contact(self):
+        self.edit_contact_by_name(0)
+
+    def edit_contact_by_index(self, index, contact):
         wd = self.app.wd
         self.return_home_page()
         # click edit contact
-        wd.find_element_by_css_selector("img[alt=\"Edit\"]").click()
+        self.select_contact_by_index(index)
         # edit contact firm
         self.fill_contact_form(contact)
         # update
@@ -73,10 +80,12 @@ class ContactHelper:
         self.contact_cashe = None
 
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.return_home_page()
-        # click edit contact
-        wd.find_element_by_css_selector("img[alt=\"Edit\"]").click()
+        self.select_contact_by_index(index)
         # click delete contact
         wd.find_element_by_xpath("//div[@id='content']/form[2]/input[2]").click()
         self.return_home_page()
