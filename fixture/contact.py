@@ -37,11 +37,11 @@ class ContactHelper:
         self.change_field_value("email2", contact.email2)
         self.change_field_value("email3", contact.email3)
         self.change_field_value("homepage", contact.homepage)
-        Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
+        self.change_value_of_list_box("bday", contact.bday)
+        self.change_value_of_list_box("bmonth", contact.bmonth)
         self.change_field_value("byear", contact.byear)
-        Select(wd.find_element_by_name("aday")).select_by_visible_text(contact.aday)
-        Select(wd.find_element_by_name("amonth")).select_by_visible_text(contact.amonth)
+        self.change_value_of_list_box("aday", contact.aday)
+        self.change_value_of_list_box("amonth", contact.amonth)
         self.change_field_value("ayear", contact.ayear)
         self.change_field_value("address2", contact.address2)
         self.change_field_value("phone2", contact.phone2)
@@ -53,6 +53,11 @@ class ContactHelper:
             wd.find_element_by_name(field_name).click()
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
+
+    def change_value_of_list_box(self, field_name, text):
+        wd = self.app.wd
+        if text is not None:
+            Select(wd.find_element_by_name(field_name)).select_by_visible_text(text)
 
     def edit_first_contact(self, contact):
         wd = self.app.wd
