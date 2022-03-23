@@ -62,7 +62,7 @@ class ContactHelper:
 
     def select_contact_by_index(self, index):
         wd = self.app.wd
-        wd.find_elements_by_css_selector("img[alt=\"Edit\"]")[index].click()
+        wd.find_elements_by_css_selector("img[alt='Edit']")[index].click()
 
     def edit_first_contact(self):
         self.edit_contact_by_name(0)
