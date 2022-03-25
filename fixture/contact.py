@@ -18,7 +18,7 @@ class ContactHelper:
         self.fill_contact_form(contact)
         # submit
         wd.find_element_by_xpath("//input[21]").click()
-        self.return_home_page()
+        self.open_home_page()
         self.contact_cashe = None
 
     def fill_contact_form(self, contact):
@@ -69,14 +69,14 @@ class ContactHelper:
 
     def edit_contact_by_index(self, index, contact):
         wd = self.app.wd
-        self.return_home_page()
+        self.open_home_page()
         # click edit contact
         self.select_contact_by_index(index)
         # edit contact firm
         self.fill_contact_form(contact)
         # update
         wd.find_element_by_name("update").click()
-        self.return_home_page()
+        self.open_home_page()
         self.contact_cashe = None
 
     def delete_first_contact(self):
@@ -84,21 +84,21 @@ class ContactHelper:
 
     def delete_contact_by_index(self, index):
         wd = self.app.wd
-        self.return_home_page()
+        self.open_home_page()
         self.select_contact_by_index(index)
         # click delete contact
         wd.find_element_by_xpath("//div[@id='content']/form[2]/input[2]").click()
-        self.return_home_page()
+        self.open_home_page()
         self.contact_cashe = None
 
-    def return_home_page(self):
+    def open_home_page(self):
         wd = self.app.wd
         if not wd.current_url.endswith('/addressbook/'):
             wd.find_element_by_link_text("home").click()
 
     def count(self):
         wd = self.app.wd
-        self.return_home_page()
+        self.open_home_page()
         return len(wd.find_elements_by_name("selected[]"))
 
     contact_cashe = None
@@ -106,12 +106,41 @@ class ContactHelper:
     def get_contact_list(self):
         if self.contact_cashe is None:
             wd = self.app.wd
-            self.return_home_page()
+            self.open_home_page()
             self.contact_cashe = []
             for row in wd.find_elements_by_name("entry"):
                 cells = row.find_elements_by_tag_name("td")
                 firstname = cells[2].text
                 lastname = cells[1].text
                 id = cells[0].find_element_by_tag_name("input").get_attribute("value")
+                all_phones = cells[5].splitlines()
                 self.contact_cashe.append(Contact(firstname=firstname, lastname=lastname, id=id))
         return list(self.contact_cashe)
+
+    def open_contact_to_edit_by_index(self, index):
+        wd = self.app.wd
+        self.app.open_home_page()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[7]
+        cell.find_element_by_tag_name("a").click()
+
+    def open_contact_view_by_index(self, index):
+        wd = self.app.wd
+        self.app.open_home_page()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[6]
+        cell.find_element_by_tag_name("a").click()
+
+    def get_contact_info_from_edit_page(self, index):
+        wd = self.app.wd
+        self.open_contact_to_edit_by_index(index)
+        firstname = wd.find_element_by_name("firstname").get_attribute("value")
+        lastname = wd.find_element_by_name("lastname").get_attribute("value")
+        id = wd.find_element_by_name("id").get_attribute("value")
+        homephone = wd.find_element_by_name("home").get_attribute("value")
+        workphone = wd.find_element_by_name("work").get_attribute("value")
+        mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
+        secondaryphone = wd.find_element_by_name("phone2").get_attribute("value")
+        return Contact(firstname=firstname, lastname=lastname, id=id,
+                       homephone=homephone, mobilephone=mobilephone,
+                       workphone=workphone, secondaryphone=secondaryphone)
