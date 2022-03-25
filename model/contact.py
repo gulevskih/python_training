@@ -15,9 +15,9 @@ class Contact:
         self.title = title
         self.company = company
         self.address = address
-        self.phone_home = homephone
-        self.mobile = mobilephone
-        self.phone_work = workphone
+        self.homephone = homephone
+        self.mobilephone = mobilephone
+        self.workphone = workphone
         self.fax = fax
         self.email = email
         self.email2 = email2
@@ -30,7 +30,7 @@ class Contact:
         self.amonth = amonth
         self.ayear = ayear
         self.address2 = address2
-        self.phone2 = secondaryphone
+        self.secondaryphone = secondaryphone
         self.notes = notes
         self.id = id
 
