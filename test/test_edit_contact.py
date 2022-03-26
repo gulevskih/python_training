@@ -3,9 +3,7 @@ from random import randrange
 
 def test_edit_contact(app):
     if app.contact.count() == 0:
-        app.contact.create(Contact(firstname="test", middlename='test',
-                                   bday='13', bmonth='September', byear="1984",
-                                   aday='4', amonth='May', ayear="1977"))
+        app.contact.create(Contact(firstname="test", mobilephone="+7(905)4444867"))
     old_contacts = app.contact.get_contact_list()
     index = randrange(len(old_contacts))
     contact = Contact(firstname="New_firstname", lastname="New_lastname")
