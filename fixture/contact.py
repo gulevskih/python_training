@@ -118,6 +118,15 @@ class ContactHelper:
         self.app.open_home_page()
         self.contact_cashe = None
 
+    def add_contact_to_group(self, contact_id):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_name("add").click()
+        self.app.open_home_page()
+        self.contact_cashe = None
+
+
     def count(self):
         wd = self.app.wd
         self.app.open_home_page()
