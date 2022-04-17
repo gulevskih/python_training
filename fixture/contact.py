@@ -118,14 +118,33 @@ class ContactHelper:
         self.app.open_home_page()
         self.contact_cashe = None
 
-    def add_contact_to_group(self, contact_id):
+    def add_contact_to_group(self, contact_id, group_id):
         wd = self.app.wd
         self.app.open_home_page()
+        self.select_add_group_by_id(group_id)
         self.select_contact_by_id(contact_id)
         wd.find_element_by_name("add").click()
         self.app.open_home_page()
         self.contact_cashe = None
 
+    def select_add_group_by_id(self, group_id):
+        wd = self.app.wd
+        wd.find_element_by_name("to_group").click()
+        Select(wd.find_element_by_name("to_group")).select_by_value(group_id)
+
+    def del_contact_from_group(self, group_id):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.select_view_group_by_id(group_id)
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_name("remove").click()
+        self.app.open_home_page()
+        self.contact_cashe = None
+
+    def select_view_group_by_id(self, group_id):
+        wd = self.app.wd
+        wd.find_element_by_name("group").click()
+        Select(wd.find_element_by_name("group")).select_by_value(group_id)
 
     def count(self):
         wd = self.app.wd
