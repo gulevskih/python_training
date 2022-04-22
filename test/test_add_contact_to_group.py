@@ -23,11 +23,9 @@ def test_add_contact_to_group(app, db):
     contacts = db.get_contact_list()
     contact = random.choice(contacts)
 
-    old_list_group = dbORM.get_contacts_in_group(Group(id="%s" % group.id))
-
+    old_list_group = dbORM.get_contacts_in_group(Group(id=group.id))
     app.contact.add_contact_to_group(contact.id, group.id)
-
-    new_list_group = dbORM.get_contacts_in_group(Group(id="%s" % group.id))
+    new_list_group = dbORM.get_contacts_in_group(Group(id=group.id))
 
     assert len(old_list_group) + 1 == len(new_list_group)
 

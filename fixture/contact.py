@@ -132,11 +132,11 @@ class ContactHelper:
         wd.find_element_by_name("to_group").click()
         Select(wd.find_element_by_name("to_group")).select_by_value(group_id)
 
-    def del_contact_from_group(self, group_id):
+    def del_contact_from_group(self, contact_id, group_id):
         wd = self.app.wd
         self.app.open_home_page()
         self.select_view_group_by_id(group_id)
-        wd.find_element_by_name("selected[]").click()
+        self.select_contact_by_id(contact_id)
         wd.find_element_by_name("remove").click()
         self.app.open_home_page()
         self.contact_cashe = None
