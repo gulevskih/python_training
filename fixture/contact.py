@@ -146,6 +146,11 @@ class ContactHelper:
         wd.find_element_by_name("group").click()
         Select(wd.find_element_by_name("group")).select_by_value(group_id)
 
+    def del_all_contacts_in_group(self):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[id='MassCB']").click()
+        wd.find_element_by_name("remove").click()
+
     def count(self):
         wd = self.app.wd
         self.app.open_home_page()
