@@ -129,6 +129,7 @@ class ContactHelper:
 
     def select_add_group_by_id(self, group_id):
         wd = self.app.wd
+        self.app.open_home_page()
         wd.find_element_by_name("to_group").click()
         Select(wd.find_element_by_name("to_group")).select_by_value(group_id)
 
@@ -143,6 +144,7 @@ class ContactHelper:
 
     def select_view_group_by_id(self, group_id):
         wd = self.app.wd
+        self.app.open_home_page()
         wd.find_element_by_name("group").click()
         Select(wd.find_element_by_name("group")).select_by_value(group_id)
 
@@ -150,6 +152,7 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_css_selector("input[id='MassCB']").click()
         wd.find_element_by_name("remove").click()
+        self.app.open_home_page()
 
     def count(self):
         wd = self.app.wd
