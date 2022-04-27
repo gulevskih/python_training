@@ -1,0 +1,141 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "test",
+    "children" : [ {
+      "name" : "test_add_group",
+      "children" : [ {
+        "name" : "test_add_group[None:name4 :header1:footer1]",
+        "uid" : "8e122f2548e69108",
+        "parentUid" : "5d3e96f7ebf064b5c68ffe91a0a61511",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651079992115,
+          "stop" : 1651079993286,
+          "duration" : 1171
+        },
+        "flaky" : false,
+        "parameters" : [ "None:name4 :header1:footer1" ]
+      }, {
+        "name" : "test_add_group[None:name5:header2:footer2]",
+        "uid" : "b19c65bb330cae3d",
+        "parentUid" : "5d3e96f7ebf064b5c68ffe91a0a61511",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651079993326,
+          "stop" : 1651079994400,
+          "duration" : 1074
+        },
+        "flaky" : false,
+        "parameters" : [ "None:name5:header2:footer2" ]
+      }, {
+        "name" : "test_add_group[None: name6:header3:footer3]",
+        "uid" : "e9acd13749fb5092",
+        "parentUid" : "5d3e96f7ebf064b5c68ffe91a0a61511",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651079994433,
+          "stop" : 1651079995491,
+          "duration" : 1058
+        },
+        "flaky" : false,
+        "parameters" : [ "None: name6:header3:footer3" ]
+      } ],
+      "uid" : "5d3e96f7ebf064b5c68ffe91a0a61511"
+    }, {
+      "name" : "test_del_group",
+      "children" : [ {
+        "name" : "test_delete_some_group",
+        "uid" : "a2f3a327d4a44653",
+        "parentUid" : "d23facdfe6db251dca2c6a095c39537f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651079995525,
+          "stop" : 1651079996466,
+          "duration" : 941
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d23facdfe6db251dca2c6a095c39537f"
+    }, {
+      "name" : "test_add_contact",
+      "children" : [ {
+        "name" : "test_add_contact[None:Sten:Li   ]",
+        "uid" : "9a5c53c200826b33",
+        "parentUid" : "467e19f2a76cd66794d826897ebe292c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651079996498,
+          "stop" : 1651080003158,
+          "duration" : 6660
+        },
+        "flaky" : false,
+        "parameters" : [ "None:Sten:Li   " ]
+      }, {
+        "name" : "test_add_contact[None:Sten2    :     Li2]",
+        "uid" : "8b9ae886fb673dad",
+        "parentUid" : "467e19f2a76cd66794d826897ebe292c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651080003225,
+          "stop" : 1651080009849,
+          "duration" : 6624
+        },
+        "flaky" : false,
+        "parameters" : [ "None:Sten2    :     Li2" ]
+      } ],
+      "uid" : "467e19f2a76cd66794d826897ebe292c"
+    }, {
+      "name" : "test_del_contact",
+      "children" : [ {
+        "name" : "test_delete_some_contact",
+        "uid" : "7a536cab93d513",
+        "parentUid" : "ad9c38ad35027ba64876ab7a8ecdd9e3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651080009922,
+          "stop" : 1651080010654,
+          "duration" : 732
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "ad9c38ad35027ba64876ab7a8ecdd9e3"
+    }, {
+      "name" : "test_edit_contact",
+      "children" : [ {
+        "name" : "test_edit_contact",
+        "uid" : "14e6a64c3b19356e",
+        "parentUid" : "59095894e99445a0154effde6b2fd528",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651080010725,
+          "stop" : 1651080011880,
+          "duration" : 1155
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "59095894e99445a0154effde6b2fd528"
+    }, {
+      "name" : "test_edit_group",
+      "children" : [ {
+        "name" : "test_edit_group_name",
+        "uid" : "717ac56510ed0e26",
+        "parentUid" : "2215282f8380e6f7bddffd44f0b732c9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1651080011944,
+          "stop" : 1651080012920,
+          "duration" : 976
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "2215282f8380e6f7bddffd44f0b732c9"
+    } ],
+    "uid" : "ff2b04dbb9c449a4d40723f51d841925"
+  } ]
+}
